@@ -6,7 +6,7 @@ Catálogo online desenvolvido para uma loja de moda masculina, permitindo a visu
 
 Acesse o projeto online:
 
-https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/
+(https://pedrollima2002.github.io/catalogo-rpg/)
 
 ## 📋 Funcionalidades
 
@@ -76,6 +76,6 @@ Adicione aqui uma imagem da página do produto.
 
 Pedro Lima
 
-LinkedIn: seu-linkedin
+LinkedIn: www.linkedin.com/in/pedro-lima-a56331310
 
 GitHub: https://github.com/pedrollima2002
