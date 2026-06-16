@@ -53,15 +53,6 @@ Este projeto foi desenvolvido com o objetivo de criar um catálogo digital para 
 
 Além de atender uma necessidade real de negócio, o projeto foi utilizado para aprofundar conhecimentos em JavaScript, manipulação do DOM, consumo de dados externos, organização de código e publicação de aplicações web.
 
-## 📸 Capturas de Tela
-
-### Página Inicial
-
-Adicione aqui uma imagem da página inicial.
-
-### Página do Produto
-
-Adicione aqui uma imagem da página do produto.
 
 ## 🔄 Melhorias Futuras
 
