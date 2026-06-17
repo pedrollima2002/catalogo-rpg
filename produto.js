@@ -1,3 +1,7 @@
+const areaRelacionados = document.querySelector("#relacionados");
+
+const tituloRelacionados = document.querySelector("#titulo-relacionados");
+
 const parametros = new URLSearchParams(window.location.search);
 
 const areaProduto = document.querySelector("#produto");
@@ -7,39 +11,62 @@ const id = parametros.get("id");
 console.log(id);
 
 fetch("produtos.json")
-    .then(resposta => resposta.json())
-    .then(produtos => {
+  .then((resposta) => resposta.json())
+  .then((produtos) => {
+    const produto = produtos.find((produto) => produto.id == id);
 
-        const produto = produtos.find(produto =>
-            produto.id == id
-        );
+    const relacionados = produtos.filter(
+      (item) => item.categoria === produto.categoria && item.id != produto.id,
+    );
 
-        console.log(id);
-        console.log(produto);
+    if (relacionados.length === 0) {
+      tituloRelacionados.style.display = "none";
+    }
 
-        areaProduto.innerHTML = `
-                <div class="produto-detalhe">
-            <img src="${produto.imagem}" alt="${produto.nome}">
+    console.log(id);
+    console.log(produto);
 
-            <h1>${produto.nome}</h1>
+    areaProduto.innerHTML = `    
+    <img src="${produto.imagem}" alt="${produto.nome}">
 
-            <p>Categoria: ${produto.categoria}</p>
+    <h1>${produto.nome}</h1>
 
-            <p>R$ ${produto.preco}</p>
-            <a
-                href="https://wa.me/5581981225524?text=${encodeURIComponent(`Olá, tenho interesse na ${produto.nome}`)}"
-                target="_blank"
-            >
-                <button>Tenho Interesse</button>
-            </a>
-            <a href="index.html">
-    <button>Voltar ao Catálogo</button>
+    <p>Categoria: ${produto.categoria}</p>
+
+    <p class="preco">R$ ${produto.preco}</p>
+
+    <a
+        href="https://wa.me/5581981225524?text=${encodeURIComponent(`Olá! Tenho interesse na peça ${produto.nome}`)}"
+        target="_blank"
+    >
+        <button>Tenho Interesse</button>
+    </a>
+
+    <br><br>
+
+    <a href="index.html" class="voltar">
+    ← Voltar ao catálogo
 </a>
-          </div>
-          `;
-       
 
-    });
-           
+`;
 
-    
+    for (const item of relacionados) {
+      areaRelacionados.innerHTML += `
+
+        <div class="produto">
+
+            <img src="${item.imagem}" alt="${item.nome}">
+
+            <h3>${item.nome}</h3>
+
+            <p>R$ ${item.preco}</p>
+
+            <a href="produto.html?id=${item.id}">
+                <button>Ver Produto</button>
+            </a>
+
+        </div>
+
+    `;
+    }
+  });
